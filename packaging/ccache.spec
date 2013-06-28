@@ -27,6 +27,7 @@ License:        GPLv3+
 Url:            http://ccache.samba.org/
 Group:          Development/Languages/C and C++
 Source0:        http://samba.org/ftp/ccache/%{name}-%{version}.tar.bz2
+Source1001: 	ccache.manifest
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
 BuildRequires:  zlib-devel
@@ -39,6 +40,7 @@ again. Supported languages are C, C++, Objective-C and Objective-C++.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 %build
 %configure
@@ -51,6 +53,7 @@ make install DESTDIR=%{buildroot}
 rm -rf %{buildroot}
 
 %files
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %doc AUTHORS.* GPL-3.0.txt INSTALL.* LICENSE.* MANUAL.* NEWS.* README.*
 %doc %{_mandir}/man1/ccache.1%{ext_man}
