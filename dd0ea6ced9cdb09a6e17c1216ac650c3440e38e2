@@ -1,0 +1,8 @@
+Change-Id: Idd0ea6ced9cdb09a6e17c1216ac650c3440e38e2
+Code-Review+2: Ryan Ware <ware@linux.intel.com>
+Verified+1: Ryan Ware <ware@linux.intel.com>
+Submitted-by: Ryan Ware <ware@linux.intel.com>
+Submitted-at: Mon, 08 Jul 2013 10:05:56 -0700
+Reviewed-on: https://review.tizen.org/gerrit/4636
+Project: platform/upstream/ccache
+Branch: refs/heads/tizen
