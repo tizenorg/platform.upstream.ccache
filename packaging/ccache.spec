@@ -71,7 +71,7 @@ rm -rf %{buildroot}
 %manifest %{name}.manifest
 %defattr(-,root,root,-)
 %doc AUTHORS.* GPL-3.0.txt INSTALL.* LICENSE.* MANUAL.* NEWS.* README.*
-%doc %{_mandir}/man1/ccache.1%{ext_man}
+#%doc %{_mandir}/man1/ccache.1%{ext_man}
 %{_prefix}/local/bin/*
 /var/tmp/ccache
 /etc/ccache.conf
