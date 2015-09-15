@@ -73,7 +73,6 @@ rm -rf %{buildroot}
 %doc AUTHORS.* GPL-3.0.txt INSTALL.* LICENSE.* MANUAL.* NEWS.* README.*
 #%doc %{_mandir}/man1/ccache.1%{ext_man}
 %{_prefix}/local/bin/*
-/var/ccache
 /var/ccache/cache
 /etc/ccache.conf
 
