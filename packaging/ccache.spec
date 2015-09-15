@@ -64,6 +64,9 @@ max_size = 100G
 log_file = /home/abuild/.ccache.log
 EOF
 
+%post
+touch /var/ccache/timestamp
+
 %clean
 rm -rf %{buildroot}
 
@@ -71,7 +74,6 @@ rm -rf %{buildroot}
 %manifest %{name}.manifest
 %defattr(-,root,root,-)
 %doc AUTHORS.* GPL-3.0.txt INSTALL.* LICENSE.* MANUAL.* NEWS.* README.*
-#%doc %{_mandir}/man1/ccache.1%{ext_man}
 %{_prefix}/local/bin/*
 /var/ccache/cache
 /etc/ccache.conf
