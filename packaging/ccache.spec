@@ -55,10 +55,10 @@ do
 done
 ## configuration
 mkdir -p %{buildroot}/etc
-mkdir -p %{buildroot}/var/ccache
-chmod 777 %{buildroot}/var/ccache
+mkdir -p %{buildroot}/var/ccache/cache
+chmod 777 %{buildroot}/var/ccache/cache
 cat > %{buildroot}/etc/ccache.conf << EOF
-cache_dir = /var/ccache
+cache_dir = /var/ccache/cache
 compiler_check = content
 max_size = 100G
 log_file = /home/abuild/.ccache.log
@@ -74,6 +74,7 @@ rm -rf %{buildroot}
 #%doc %{_mandir}/man1/ccache.1%{ext_man}
 %{_prefix}/local/bin/*
 /var/ccache
+/var/ccache/cache
 /etc/ccache.conf
 
 %changelog
