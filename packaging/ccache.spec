@@ -55,10 +55,10 @@ do
 done
 ## configuration
 mkdir -p %{buildroot}/etc
-mkdir -p %{buildroot}/var/tmp/ccache
-chmod 777 %{buildroot}/var/tmp/ccache
+mkdir -p %{buildroot}/var/ccache
+chmod 777 %{buildroot}/var/ccache
 cat > %{buildroot}/etc/ccache.conf << EOF
-cache_dir = /var/tmp/ccache
+cache_dir = /var/ccache
 compiler_check = content
 max_size = 100G
 log_file = /home/abuild/.ccache.log
@@ -73,7 +73,7 @@ rm -rf %{buildroot}
 %doc AUTHORS.* GPL-3.0.txt INSTALL.* LICENSE.* MANUAL.* NEWS.* README.*
 #%doc %{_mandir}/man1/ccache.1%{ext_man}
 %{_prefix}/local/bin/*
-/var/tmp/ccache
+/var/ccache
 /etc/ccache.conf
 
 %changelog
