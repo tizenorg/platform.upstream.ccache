@@ -17,6 +17,21 @@
 
 # norootforbuild
 
+%ifarch armv7l
+%define ARCH armv7l
+%define ABI eabi
+%endif
+%ifarch %ix86
+%define ARCH i586
+%endif
+%ifarch x86_64
+%define ARCH x86_64
+%endif
+%ifarch aarch64
+%define ARCH aarch64
+%endif
+%define gcc_target %{ARCH}-tizen-linux-gnu%{?ABI}
+
 
 Name:           ccache
 Version:        3.2.3
@@ -49,6 +64,8 @@ make %{?_smp_mflags}
 
 %install
 make install DESTDIR=%{buildroot}
+
+gcc_version=`gcc --version | sed -ne '1s/.* //p'`
 for compiler in c{c,++} g{cc,++} %{gcc_target}-g{cc,++} %{gcc_target}-c++ %{gcc_target}-gcc-${gcc_version} clang clang++
 do
   ln -s ccache %{buildroot}%{_prefix}/local/bin/$compiler
