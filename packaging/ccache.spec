@@ -66,7 +66,7 @@ make %{?_smp_mflags}
 make install DESTDIR=%{buildroot}
 
 gcc_version=`gcc --version | sed -ne '1s/.* //p'`
-for compiler in c{c,++} g{cc,++} %{gcc_target}-g{cc,++} %{gcc_target}-c++ %{gcc_target}-gcc-${gcc_version} clang clang++
+for compiler in c{c,++} g{cc,++} %{gcc_target}-g{cc,++} %{gcc_target}-c++ %{gcc_target}-gcc-${gcc_version} %{?clang_build:clang clang++}
 do
   ln -s ccache %{buildroot}%{_prefix}/local/bin/$compiler
 done
